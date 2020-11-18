@@ -7,7 +7,7 @@ defmodule IslandsEngine.GameSupervisor do
     Supervisor.start_link(__MODULE__, :ok, name: __MODULE__)
   end
 
-  def init(:ok) do
+  def init(_name) do
     Supervisor.init([Game], strategy: :simple_one_for_one)
   end
 
