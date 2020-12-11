@@ -10,7 +10,6 @@ defmodule IslandsEngine.Game do
     GenServer.start_link(__MODULE__, name, name: via_tuple(name))
   end
 
-
   def init(name) do
     send(self(), {:set_state, name})
     {:ok, fresh_state(name)}
