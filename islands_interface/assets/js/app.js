@@ -83,3 +83,10 @@ window.set_islands = (channel, player) => {
             console.log("Unable to set islands for: " + player, response)
         })
 }
+window.guess_coordinate = (channel, player, row, col) => {
+    var params = {"player": player, "row": row, "col": col}
+    channel.push("guess_coordinate", params)
+        .receive("error", response => {
+            console.log("Unable to guess a coordiate: " + player, response)
+        })
+}
