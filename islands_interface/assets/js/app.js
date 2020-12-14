@@ -63,3 +63,13 @@ window.add_player = (channel, player) => {
             console.log("Unable to add player: " + player, response)
         })
 }
+window.position_island = (channel, player, island, row, col) => {
+    var params = {"player": player, "island": island, "row": row, "col": col}
+    channel.push("position_island", params)
+        .receive("ok", response => {
+            console.log("Island positioned!", response)
+        })
+        .receive("error", response => {
+            console.log("Unable to position island.", response)
+        })
+}
