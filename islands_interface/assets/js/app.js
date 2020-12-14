@@ -73,3 +73,13 @@ window.position_island = (channel, player, island, row, col) => {
             console.log("Unable to position island.", response)
         })
 }
+window.set_islands = (channel, player) => {
+    channel.push("set_islands", player)
+        .receive("ok", response => {
+            console.log("Here is the board:");
+            console.dir(response.board);
+        })
+        .receive("error", response => {
+            console.log("Unable to set islands for: " + player, response)
+        })
+}
