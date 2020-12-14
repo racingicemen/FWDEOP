@@ -13,7 +13,7 @@ defmodule IslandsEngine.GameSupervisor do
 
   def start_game(name) do
     spec = %{id: Game, start: {Game, :start_link, [name]}}
-    {:ok, _pid} = DynamicSupervisor.start_child(__MODULE__, spec)
+    DynamicSupervisor.start_child(__MODULE__, spec)
   end
 
   def stop_game(name) do
